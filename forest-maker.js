@@ -18,18 +18,19 @@ glob('tree-template-library/*.json', null, function(error, files) {
   files.forEach(function(file) {
     let contents = JSON.parse(fs.readFileSync(file, 'utf8'));
     // process file here
-    processFile({ ...contents });
-    // ... is the spread operator, I'm copying all the keys and
-    //  their values from one object to new one)
+    processFile(contents);
   });
 
   // after we've done everything
   combineAndExport(processedFiles);
 });
 
-function processFile(fileCopy) {
+function processFile(file) {
+  // we're looping over number of copies to make
   for (let i = 1; i <= numberOfCopies; i++) {
-    // we're looping over number of copies to mak
+    // ... is the spread operator, I'm copying all the keys and
+    //  their values from one object to new one)
+    let fileCopy = { ...file };
 
     /*** process the copy here ***/
 
@@ -38,7 +39,7 @@ function processFile(fileCopy) {
     /*** done processing ***/
 
     // push the processed copy into the global array
-    processedFiles.push(fileCopy); // put the current file contents (JS object) into the array
+    processedFiles.push(fileCopy);
   }
 }
 
