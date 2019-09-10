@@ -14,7 +14,7 @@ def subset_sum(numbers, target, partial=[]):
 
 
 if __name__ == "__main__":
-    subset_sum([3,9,8,4,5,7,10],15)
+    subset_sum([3,4,1,2,12,6,9,8,4,5,7,10],9)
 
     #Outputs:
     #sum([3, 8, 4])=15
