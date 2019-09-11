@@ -28,3 +28,6 @@ print("Bins used: " + str(sum(([y[i].value() for i in range(maxBins)]))))
 for i in x.keys():
     if x[i].value() == 1:
         print("Item {} is packed in bin {}.".format(*i))
+
+
+# Need 25 kW allocation limit
