@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+</head>
+
+<body>
+  <div id="container"></div>
+  <input id="getValues" type="button" value="Get Values" />
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js">
+    </script>
+  <script type='text/javascript'>
+    var fieldNames = ['loren', 'ipsum', 'plumpus', 'dumbas'];
+    
+    function addFields() {
+      // Container <div> where dynamic content will be placed
+      var container = document.getElementById("container");
+      // Clear previous contents of the container
+      while (container.hasChildNodes()) {
+        container.removeChild(container.lastChild);
+      }
+
+      for (i = 0; i < fieldNames.length; i++) {
+        // Append a node with a random text
+        container.appendChild(document.createTextNode(fieldNames[i]));
+        // Create an <input> element, set its type and name attributes
+        var input = document.createElement("input");
+        input.type = "text";
+        input.name = fieldNames[i];
+        container.appendChild(input);
+        // Append a line break 
+        container.appendChild(document.createElement("br"));
+      }
+    }
+    
+    addFields();
+    
+    document.getElementById('getValues').addEventListener('click', function () {
+        var values = {};
+
+        for (let i = 0; i < fieldNames.length; i++) {
+            const element = fieldNames[i];
+            values[fieldNames[i]] = document.getElementsByName(fieldNames[i])[0].value;
+        }
+
+        console.log(values);
+    });
+  </script>
+
+</body>
+
+</html>
