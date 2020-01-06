@@ -1,0 +1,31 @@
+<form id="docType">
+    <select id="selectDocumentType" name="documentClass">
+      <option value="PUBLIC">Public</option>
+      <option value="INTERNAL">Internal</option>
+      <option value="CONFIDENTIAL">Confidential</option>
+      <option value="SECRET">Secret</option>
+    </select>
+    
+    <hr/>
+     <input type="button" onClick="formSubmit();" value="Submit" />
+    </form>
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js">
+        </script>
+        <script>a
+        function formSubmit(){
+        Submit();
+        }
+       
+        
+        function Submit() {
+        var selectedValue = $('#selectDocumentType').val();
+        console.log(selectedValue);
+          google.script.run
+            .withSuccessHandler(closeIt)
+            .AddValuesFromModal(selectedValue);
+          };
+          
+        function closeIt(){
+          google.script.host.close();
+        };
+        </script>

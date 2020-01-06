@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <base target="_top">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+          <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+</head>
+
+<body>
+<div class="row">
+</div>
+<div class="container">
+<div class="row">
+  <input href="#" class="btn blue rounded" id="findValues" type="button" value="   Find Values   " />
+  </div>
+  <div id="container"></div>
+  <div class="row">
+    </div>
+  <input href="#" class="btn deep-orange rounded" id="getValues" type="button" value="Change Values" />
+  <div class="row">
+  </div>
+</div>
+<style>
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: light-grey;
+  color: light-grey;
+  text-align: center;
+}
+</style>
+
+<div class="footer">
+<input href="#" class="btn grey small rounded" id="showSidebarIntro" type="button" value="Return to Intro" />
+</div>
+</body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js">
+    </script>
+  <script type='text/javascript'>
+    var g_fieldNames;
+    
+    console.log('calling get variables....');
+    getFieldNames();
+    
+    
+    function addFields(fieldNames) {
+    console.log('addFields is running');
+    
+      // Container <div> where dynamic content will be placed
+      var container = document.getElementById("container");
+      // Clear previous contents of the container
+      while (container.hasChildNodes()) {
+        container.removeChild(container.lastChild);
+      }
+
+      for (i = 0; i < fieldNames.length; i++) {
+        // Append a node with a random text
+        container.appendChild(document.createTextNode(fieldNames[i]));
+        // Create an <input> element, set its type and name attributes
+        var input = document.createElement("input");
+        input.type = "text";
+        input.class = "validate"
+        input.name = fieldNames[i];
+        input.id = fieldNames[i];
+        container.appendChild(input);
+        // Append a line break 
+        container.appendChild(document.createElement("br"));
+        
+        //add to global for other uses
+        g_fieldNames = fieldNames;
+        
+      }
+    }
+    //Gets what the user input when they click Change Values
+    document.getElementById('getValues').addEventListener('click', function () {
+        var values = {};
+
+        for (let i = 0; i < g_fieldNames.length; i++) {
+            values[g_fieldNames[i]] = document.getElementById(g_fieldNames[i]).value;
+        }
+        console.log(values);
+        
+        sendPlaceholders(values);
+    });
+    
+        document.getElementById('findValues').addEventListener('click', function () {
+        google.script.run
+        .withFailureHandler(onFailure)
+        .withSuccessHandler(onSuccess)
+        .showSidebar();
+    });
+    
+        document.getElementById('showSidebarIntro').addEventListener('click', function () {
+        google.script.run
+        .withFailureHandler(onFailure)
+        .withSuccessHandler(done)
+        .showSidebarIntro();
+    });
+    
+    
+    function sendPlaceholders(values){
+    console.log('sending values to google...');
+    
+        google.script.run
+        .withFailureHandler(onFailure)
+        .withSuccessHandler(done)
+        .pushPlaceholders(values);
+    }
+    
+    
+    function getFieldNames() {
+        google.script.run
+        .withFailureHandler(onFailure)
+        .withSuccessHandler(onSuccess)
+        .getVariables();
+                
+        console.log('getVarables ran!');
+    }
+    
+     function done(){
+     console.log('sent data to google!');
+     }
+     
+     function onSuccess(fieldNames_fromDoc) { 
+       console.log('onSuccess ran!');
+       addFields(fieldNames_fromDoc); 
+     }
+     
+     function onFailure(){
+     console.log('Failure is just an oppertunity for growth!');
+     }
+     
+    
+  </script>
+
+
+
+
+</html>
