@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0" />
+  <title>Starter Template - Materialize</title>
+
+  <!-- CSS  -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection" />
+  <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <style>
+    .gap-10 {
+      width: 100%;
+      height: 20px;
+    }
+
+    .gap-20 {
+      width: 100%;
+      height: 40px;
+    }
+
+    .gap-30 {
+      width: 100%;
+      height: 60px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="section">
+
+    <!--   Icon Section   -->
+
+    <div class="col s12 m4">
+
+    </div>
+
+   <div class="container">
+      <p align="justify" style="font-family:helvetica,garamond,serif;font-size:16px;font-style:regular;" class="light">
+        <b>Control Page</b></p>
+    </div>
+    <div class="container">
+      <p align="justify" style="font-family:helvetica,garamond,serif;font-size:12px;font-style:regular;" class="light">
+        In order to comply with information security standards, we have to define every document we make in terms of information classification. As such, every document must be labelled with one of the following four designations: Public, Internal, Confidential, and Secret. This toolset helps Ampionites comply while their producing documents by allowing them to check for compliance, and automatically add the appropriate designations at the click of a button.</p>
+
+
+
+
+
+    </div>
+    <div class="container">
+      <div class="video-container">
+        <iframe width="853" height="480" src="https://drive.google.com/file/d/1bx9lNaTgsEhJSTlxLTeF0vSUaYWyS1kS/preview"
+          frameborder="0" allowfullscreen></iframe>
+      </div>
+    </div>
+    <div class="gap-20"></div>
+<hr>
+</div>
+<div class="container">
+        <p align="justify" style="font-family:helvetica,garamond,serif;font-size:16px;font-style:regular;" class="light">
+        <b>Check Compliance</b></p>
+        <p align="justify" style="font-family:helvetica,garamond,serif;font-size:12px;font-style:regular;" class="light">
+        See if your current document contains the nessesary information classification components.</p>
+<div class="row">
+  <input href="#" class="btn blue rounded" id="checkCompliance" type="button" value="Check Compliance" />
+  </div>
+<hr>
+  <div id="container"></div>
+          <p align="justify" style="font-family:helvetica,garamond,serif;font-size:16px;font-style:regular;" class="light">
+        <b>Add Control Page</b></p>
+        <p align="justify" style="font-family:helvetica,garamond,serif;font-size:12px;font-style:regular;" class="light">
+        If your document doesn't contain the nessesary control page, simply select this button and proceed through the following modal.</p>
+  <div class="row">
+    </div>
+  <input href="#" class="btn deep-orange rounded" id="AddControlSheet" type="button" value="Add Control Page" />
+  <div class="row">
+  </div>
+
+<hr>
+  <div id="container"></div>
+          <p align="justify" style="font-family:helvetica,garamond,serif;font-size:16px;font-style:regular;" class="light">
+        <b>BigQuery Page</b></p>
+        <p align="justify" style="font-family:helvetica,garamond,serif;font-size:12px;font-style:regular;" class="light">
+        Automatically Add the most popular big query fucntions.</p>
+  <div class="row">
+    </div>
+  <input href="#" class="btn deep-orange rounded" id="showBigQueryPage" type="button" value="Go to BigQuery Page" />
+  <div class="row">
+  </div>
+
+<hr>
+</div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script type='text/javascript'>
+
+      
+              document.getElementById('checkCompliance').addEventListener('click', function () {
+        google.script.run
+        .CheckCompliance();
+    });
+    
+        document.getElementById('AddControlSheet').addEventListener('click', function () {
+        google.script.run
+        .AddControlSheet();
+    });
+            document.getElementById('showBigQueryPage').addEventListener('click', function () {
+        google.script.run
+        .showBigQueryPage();
+    });
+    
+///            document.getElementById('addIndexMatch').addEventListener('click', function () {
+ ///       google.script.run
+///        .addIndexMatchComponents();
+ ///   });
+    
+     
+     function onSuccess(fieldNames_fromDoc) { 
+       console.log('onSuccess ran!');
+       addFields(fieldNames_fromDoc); 
+     }
+     
+     function onFailure(){
+     console.log('Failure is just an oppertunity for growth!');
+     }
+    </script>
+
+
+    <html>

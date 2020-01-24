@@ -1,0 +1,100 @@
+<html>
+
+<head>
+    <base target="_top">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+          <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+</head>
+
+<body>
+<div class="row">
+</div>
+<div class="container">
+      <p align="justify" style="font-family:helvetica,garamond,serif;font-size:16px;font-style:regular;" class="light">
+        <b>Add Table</b></p>
+        <p align="justify" style="font-family:helvetica,garamond,serif;font-size:12px;font-style:regular;" class="light">
+        Add a table element with the proper font and color to your cursor point.</p>   
+<div class="row">
+  <input href="#" class="btn grey lighten-2 rounded" id="AddTable" type="button" value="Add Table" />
+  </div>
+<hr>
+  <div id="container"></div>
+        <p align="justify" style="font-family:helvetica,garamond,serif;font-size:16px;font-style:regular;" class="light">
+        <b>Add Paragraph</b></p>
+        <p align="justify" style="font-family:helvetica,garamond,serif;font-size:12px;font-style:regular;" class="light">
+        Add a paragraph element with the proper font to your cursor point.</p>
+  <div class="row">
+    </div>
+  <input href="#" class="btn grey lighten-2 rounded" id="AddParagraph" type="button" value="Add Paragraph" />
+  <div class="row">
+  </div>
+<hr>
+   <div id="container"></div>
+         <p align="justify" style="font-family:helvetica,garamond,serif;font-size:16px;font-style:regular;" class="light">
+        <b>Add List</b></p>
+        <p align="justify" style="font-family:helvetica,garamond,serif;font-size:12px;font-style:regular;" class="light">
+        Add a list element with the proper font and indentation to your cursor point.</p>
+  <div class="row">
+    </div>
+  <input href="#" class="btn grey lighten-2 rounded" id="AddList" type="button" value="Add List" />
+  <div class="row">
+  </div>
+</div>
+<style>
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: light-grey;
+  color: light-grey;
+  text-align: center;
+}
+</style>
+
+<div class="footer">
+<input href="#" class="btn grey small rounded" id="showSidebarIntro" type="button" value="Return to Intro" />
+</div>
+</body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js">
+    </script>
+  <script type='text/javascript'>
+    
+        document.getElementById('AddTable').addEventListener('click', function () {
+        google.script.run
+        .AddTable();
+    });
+    
+        document.getElementById('AddParagraph').addEventListener('click', function () {
+        google.script.run
+        .AddParagraph();
+    });
+    
+        document.getElementById('AddList').addEventListener('click', function () {
+        google.script.run
+        .AddList();
+    });
+    
+        document.getElementById('showSidebarIntro').addEventListener('click', function () {
+        google.script.run
+        .showSidebarIntro();
+    });
+     
+     function onSuccess(fieldNames_fromDoc) { 
+       console.log('onSuccess ran!');
+       addFields(fieldNames_fromDoc); 
+     }
+     
+     function onFailure(){
+     console.log('Failure is just an oppertunity for growth!');
+     }
+     
+    
+  </script>
+
+
+
+
+</html>

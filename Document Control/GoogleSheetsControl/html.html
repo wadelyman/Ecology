@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<base target="_top">
+</head>
+<body>
+<div>
+        <p align="justify" style="font-family:helvetica,garamond,serif;font-size:12px;font-style:regular;" class="light">
+        Function is running... This could take a while. It's a lot of data...</p>   
+        </div>
+<p id="status">(innerHTML).</p>
+<div id="imageico"></div>
+<script>
+var imageContainer = document.getElementById("imageico");
+if (<?= data ?> != "Finished!"){
+document.getElementById("status").innerHTML = "";
+} else {
+document.getElementById("status").innerHTML = "";
+} 
+
+if (<?= close ?> == "close"){
+google.script.host.close();
+};
+
+
+</script>
+</body>
+</html>

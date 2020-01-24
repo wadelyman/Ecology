@@ -1,0 +1,86 @@
+<html>
+
+<head>
+    <base target="_top">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+          <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+</head>
+
+<body>
+<div class="row">
+</div>
+<div class="container">
+        <p align="justify" style="font-family:helvetica,garamond,serif;font-size:16px;font-style:regular;" class="light">
+        <b>Check Compliance</b></p>
+        <p align="justify" style="font-family:helvetica,garamond,serif;font-size:12px;font-style:regular;" class="light">
+        See if your current document contains the nessesary information classification components.</p>
+<div class="row">
+  <input href="#" class="btn blue rounded" id="checkCompliance" type="button" value="Check Compliance" />
+  </div>
+<hr>
+  <div id="container"></div>
+          <p align="justify" style="font-family:helvetica,garamond,serif;font-size:16px;font-style:regular;" class="light">
+        <b>Add Control Page</b></p>
+        <p align="justify" style="font-family:helvetica,garamond,serif;font-size:12px;font-style:regular;" class="light">
+        If your document doesn't contain the nessesary control page, simply select this button and proceed through the following modal.</p>
+  <div class="row">
+    </div>
+  <input href="#" class="btn deep-orange rounded" id="AddControlSheet" type="button" value="Add Control Page" />
+  <div class="row">
+  </div>
+</div>
+<style>
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: light-grey;
+  color: light-grey;
+  text-align: center;
+}
+</style>
+
+<div class="footer">
+<input href="#" class="btn grey small rounded" id="showSidebarIntro" type="button" value="Return to Intro" />
+</div>
+</body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js">
+    </script>
+  <script type='text/javascript'>
+    
+        document.getElementById('checkCompliance').addEventListener('click', function () {
+        google.script.run
+        .CheckCompliance();
+    });
+    
+        document.getElementById('AddControlSheet').addEventListener('click', function () {
+        google.script.run
+        .AddControlSheet();
+    });
+    
+        document.getElementById('showSidebarIntro').addEventListener('click', function () {
+        google.script.run
+        .showSidebarIntro();
+    });
+     
+     function onSuccess(fieldNames_fromDoc) { 
+       console.log('onSuccess ran!');
+       addFields(fieldNames_fromDoc); 
+     }
+     
+     
+     
+     function onFailure(){
+     console.log('Failure is just an oppertunity for growth!');
+     }
+     
+    
+  </script>
+
+
+
+
+</html>

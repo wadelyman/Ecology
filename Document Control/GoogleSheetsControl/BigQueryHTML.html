@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <base target="_top">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+          <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+        <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+</head>
+
+<body>
+
+
+<div class="container">
+      <p align="justify" style="font-family:helvetica,garamond,serif;font-size:16px;font-style:regular;" class="light">
+        <b>BigQuery Function</b></p>
+        <p align="justify" style="font-family:helvetica,garamond,serif;font-size:12px;font-style:regular;" class="light">
+        Select from the library of popular BigQuery functions to add a sheet or update one that you've already added.</p>   
+        </div>
+<div class="row">
+</div>
+<div class="container">
+<hr>
+<div class="row">
+  <input href="#" class="btn blue rounded" id="runQuery" type="button" value="   Get Customer Accounts   " />
+  <div class="container">
+        <p align="justify" style="font-family:helvetica,garamond,serif;font-size:12px;font-style:regular;" class="light">
+        Selects all accounts and adds them to a sheet called <b>'All Accounts'</b>.</p> 
+          <div id="container1"></div>
+        </div>
+        <hr>
+  <input href="#" class="btn blue rounded" id="runQuerySites" type="button" value="        Get  Sites        " />
+  <div class="container">
+        <p align="justify" style="font-family:helvetica,garamond,serif;font-size:12px;font-style:regular;" class="light">
+        Selects all Sites and adds them to a sheet called <b>'All Sites'</b>.</p> 
+          <div id="container2"></div>
+        </div>
+</div>
+  <hr>
+  <style>
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: light-grey;
+  color: light-grey;
+  text-align: center;
+}
+</style>
+
+<div class="footer">
+<input href="#" class="btn grey small rounded" id="showSidebarIntro" type="button" value="Return to Intro" />
+</div>
+</div>
+</body>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <script type='text/javascript'>
+        var g_fieldNames;
+        var g_siteNames;
+
+    
+    console.log('calling get variables....');
+    getFieldNames();
+    getSiteNames();
+    
+    
+    function addFields(fieldNames) {
+    console.log('addFields is running');
+    
+      // Container <div> where dynamic content will be placed
+      var container = document.getElementById("container1");
+      // Clear previous contents of the container
+      while (container.hasChildNodes()) {
+        container.removeChild(container.lastChild);
+      }
+
+     
+        // Append a node with a random text
+        container.appendChild(document.createTextNode("Last update: " + fieldNames));
+        // Create an <input> element, set its type and name attributes
+        // Append a line break 
+        container.appendChild(document.createElement("br"));
+        
+        //add to global for other uses
+        g_fieldNames = fieldNames;
+        
+      
+    }
+    
+        function addSites(siteNames) {
+    console.log('addFields is running');
+    
+      // Container <div> where dynamic content will be placed
+      var container = document.getElementById("container2");
+      // Clear previous contents of the container
+      while (container.hasChildNodes()) {
+        container.removeChild(container.lastChild);
+      }
+
+     
+        // Append a node with a random text
+        container.appendChild(document.createTextNode("Last update: " + siteNames));
+        // Create an <input> element, set its type and name attributes
+        // Append a line break 
+        container.appendChild(document.createElement("br"));
+        
+        //add to global for other uses
+        g_siteNames = siteNames;
+        
+      
+    }
+        document.getElementById('runQuery').addEventListener('click', function () {
+        google.script.run
+        .withFailureHandler(onFailure)
+        .withSuccessHandler(onSuccess)
+        .runQuery();
+    });
+    
+        document.getElementById('runQuerySites').addEventListener('click', function () {
+        google.script.run
+        .withFailureHandler(onFailure)
+        .withSuccessHandler(onSuccess)
+        .runQuerySites();
+    });
+    
+        document.getElementById('showSidebarIntro').addEventListener('click', function () {
+        google.script.run
+        .showSidebarIntro();
+    });
+    
+        function getFieldNames() {
+        google.script.run
+        .withFailureHandler(onFailure)
+        .withSuccessHandler(onSuccess)
+        .BQaccountsUpdate();               
+        console.log('getVarables ran!');
+    }
+    
+        function getSiteNames() {
+        google.script.run
+        .withFailureHandler(onFailure)
+        .withSuccessHandler(onSuccessNewName)
+        .BQsitesUpdate();               
+        console.log('getVarables ran!');
+    }
+    
+     
+     function onSuccess(fieldNames_fromDoc) { 
+       console.log('onSuccess ran!');
+       addFields(fieldNames_fromDoc); 
+     }
+     
+         function onSuccessNewName(siteNames_fromDoc) { 
+       console.log('onSuccess ran!');
+       addSites(siteNames_fromDoc); 
+     }
+     
+     
+     function onFailure(){
+     console.log('Failure is just an oppertunity for growth!');
+     }
+     
+    
+  </script>
+
+
+
+
+</html>
