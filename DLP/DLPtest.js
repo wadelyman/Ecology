@@ -14,7 +14,7 @@ var CLIENT_EMAIL = client_email;
 // Private key and client email of the service account.
 Logger.log(CLIENT_EMAIL)
 // Email address of the user to impersonate.
-var USER_EMAIL = 'sswingle@ampion.co';
+var USER_EMAIL = 'sswingle@agdfhsh';
 
 
 function getAllUserDlp() {
