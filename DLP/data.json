@@ -1,0 +1,40 @@
+{
+    "items": [
+        {
+            "events": [
+                {
+                    "parameters": [
+                        {
+                            "name": "resource_id",
+                            "value": "1R8TJcs9NLXU74c59azxx17nI2pCVcdjO"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "events": [
+                {
+                    "parameters": [
+                        {
+                            "name": "resource_id",
+                            "value": "1QPZUA75N7sucLRMudD5GIbgWe9xPNi4Q"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "events": [
+                {
+                    "parameters": [
+                        {
+                            "name": "resource_id",
+                            "value": "1nbjSRbMo649ZTmBz0F_HiDFetBivo9vw"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
