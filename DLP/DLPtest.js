@@ -144,7 +144,7 @@ function turnOffAllUserDlp() {
     var scriptProperties = PropertiesService.getScriptProperties();
     //var users = JSON.parse(scriptProperties.getProperty('activeUsers'))
     var users = filterUserList();
-    //var users = ["sswingle@ampion.co", "watyourservice@ampion.co", "wlyman@ampion.co"]
+    //var users = ["sswingle@sadgraehatr", "watyourservice@sadgraehatr", "wlyman@sadgraehatr"]
     var usersString = JSON.stringify(users)
     Logger.log(users)
     Logger.log("This is users text: " + usersString)
