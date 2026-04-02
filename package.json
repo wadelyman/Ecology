@@ -17,6 +17,6 @@
   },
   "homepage": "https://github.com/wadelyman/Ecology#readme",
   "dependencies": {
-    "glob": "^7.1.2"
+    "glob": "^13.0.6"
   }
 }
